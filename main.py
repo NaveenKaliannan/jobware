@@ -57,14 +57,14 @@ keywords=input("Enter the keywords (with space no comma) : ").split()
 print("  ")
 print("  ")
 ## no of positions
-for i in range(1,10):
+nposition=10
+for i in range(1,nposition):
     if(1):
         try:
             driver.find_element_by_xpath("//body/jw-83hzo/section[@class='ng-star-inserted']/main[@class='ng-star-inserted']/div[@class='container']/div[@class='content']/div[@class='result']/div/"+"div["+str(i+1)+"]/a[1]/div[1]/div[1]").click()
             time.sleep(2)
             driver.switch_to.window(driver.window_handles[1]) 
             time.sleep(2)
-            ##python
             ind=0
             for keyword in keywords:
                 get_source = driver.page_source 
