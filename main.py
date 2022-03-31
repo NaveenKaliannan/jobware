@@ -1,17 +1,15 @@
 #!/usr/bin/python
 
+#base
+import math
+import os,sys
+
+
 ## selenium libraries
 import selenium
 from selenium import webdriver
-import time
-import os,sys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-import math
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -27,6 +25,7 @@ import sys, traceback
 import re    
 
 # time libraries
+import time
 from datetime import datetime
 from time import sleep
 
@@ -36,28 +35,29 @@ from time import sleep
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.implicitly_wait(3)
 
-## open the jobware site
+## opens the jobware site
 driver.get('https://www.jobware.de/')
 driver.find_element_by_css_selector(".dsgvo-1B76C4DA4B-orange.dsgvo-1B76C4DA4B-accept").click()
 
-## job name
+## define job name
 pass_box = driver.find_element_by_xpath("//input[@placeholder='Stichwort, Jobtitel oder Firma']")
 pass_box.send_keys(input("Enter the job title : "))
 
-## location
+## define the location
 pass_box = driver.find_element_by_xpath("//input[@placeholder='PLZ, Ort oder Land']")
 pass_box.send_keys(input("Enter the location : "))
 
-##search
+## starts searching
 driver.find_element_by_xpath("//span[normalize-space()='Jobs finden']").click()
 
+## define the keywords
 keywords=input("Enter the keywords (with space no comma) : ").split()
-
-
 print("  ")
 print("  ")
+
+
 ## no of positions
-nposition=10
+nposition=4
 for i in range(1,nposition):
     if(1):
         try:
